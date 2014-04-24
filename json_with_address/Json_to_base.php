@@ -47,7 +47,7 @@ while ($content = readdir($var))
 				$description = $json[$i]['fields']['type_etablissement'];
 				echo $description."\n";
 			}
-			$req = $dbh->prepare('INSERT INTO place (type, address, lat, lon, description) VALUES (:a, :address, :lat, :lon, :description)');
+			$req = $dbh->prepare('INSERT INTO place (category_id, address, lat, lon, description) VALUES (:a, :address, :lat, :lon, :description)');
 			$req->execute(array(
 				'a' => $a,
 				'address' => $address,
