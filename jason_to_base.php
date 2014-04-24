@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript">
  var geocoder;
-    geocoder = new google.maps.Geocoder();
+     geocoder = new google.maps.Geocoder();
     function codeAddress(address, content) {
   //var address = "27 bis rue fromagere";
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -13,6 +13,7 @@
     }
   });
 }
+
 <?php
 $dir = "C:\wamp\www\OpenData\OpenData\\";
 $var = opendir($dir);
@@ -20,7 +21,6 @@ while ($content = readdir($var))
 {
 	if ($content[0] != '.')
 	{
-		//echo $content;
 		$raw = file_get_contents($dir.$content);
 		$json = json_decode($raw, true);
 		for ($i = 0; isset($json[$i]); $i++){
@@ -34,8 +34,7 @@ while ($content = readdir($var))
 			?>
 				codeAddress(<?php echo json_encode($address).",".json_encode($content) ?>);
 			<?php
-			//print_r($position);
-		}
+			}
 	}
 }
 
